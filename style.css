@@ -1,0 +1,217 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Caveat", serif;
+  font-weight: bold;
+  background-color: rgb(23, 221, 228);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100vh;
+}
+
+/* Title Styling */
+h1 {
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 30px;
+  /* Space between the title and the button group */
+  text-align: center;
+}
+
+/* Game Board Styling */
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  /* No gaps between cells */
+  width: 300px;
+  height: 300px;
+  background-color: black;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  font-size: 2.5rem;
+  /* Fixed font size */
+  color: white;
+  width: 100%;
+  /* Each cell takes equal space */
+  height: 100%;
+  /* Equal height */
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1;
+  /* Ensures content is vertically centered */
+  transition: background-color 0.2s, color 0.2s;
+  /* Smooth transitions for color changes */
+}
+
+.cell.taken {
+  pointer-events: none;
+}
+
+.cell.highlight {
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Prevent size changes */
+.cell {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  overflow: hidden;
+  /* Prevent text overflow */
+}
+
+.cell:empty {
+  content: "";
+  visibility: visible;
+}
+
+/* Fix flicker */
+.cell.taken {
+  transform: scale(1);
+  /* No size increase during updates */
+}
+
+/* Flicker effect for the winning X and O cells */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cell.X.highlight,
+.cell.O.highlight {
+  color: #FFA500;
+  animation: flicker 1s infinite;
+  /* Apply flicker effect to the winning cells */
+}
+
+/* Status Text Styling */
+#status {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+
+/* Status Text Changes on Win or Draw */
+#status {
+  font-size: 2rem;
+  /* Increased font size for win/draw */
+}
+
+#status.draw {
+  color: rgb(14, 13, 13);
+  /* Draw color */
+  font-size: 2rem;
+  /* Increased font size for win/draw */
+
+}
+
+/* Button Styling */
+button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  background-color: #FFA500;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+button:hover {
+  background-color: #bbb;
+}
+
+/* Mode Selection Styling */
+.mode-selection {
+  display: flex;
+  /* Makes it a button group */
+  gap: 20px;
+  /* Adds spacing between the buttons */
+  justify-content: center;
+  /* Centers the buttons */
+  align-items: center;
+  /* Aligns buttons vertically */
+  margin-bottom: 40px;
+  /* Adds space below the button group */
+}
+
+.mode-selection button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Adds spacing between the icon and the label */
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mode-selection button:hover {
+  background-color: #FFA500;
+  /* Light gray on hover */
+}
+
+.mode-selection button.selected {
+  background-color: #FFA500;
+  /* Slightly darker background for selected buttons */
+  border-color: #757373;
+}
+
+.mode-selection img {
+  pointer-events: none;
+  /* Prevents the img from intercepting click events */
+}
+
+/* Button Label Styling */
+.button-label {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: none;
+  white-space: nowrap;
+}
+
+button:hover .button-label {
+  display: block;
+  /* Show label on hover */
+}
