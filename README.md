@@ -16,10 +16,8 @@ HTML | CSS | JavaScript | License: MIT
 
 ## 🧩 About
 
-```
 Welcome to Tic-Tac-Toe, a fun and interactive web-based implementation of the classic game.
 This project offers a seamless, easy-to-use interface with two gameplay modes:
-```
 
 ✅ **Player vs Player** - Two players take turns playing on the same device.
 ✅ **Player vs Computer** - The computer plays with basic random moves.
@@ -37,6 +35,15 @@ This project offers a seamless, easy-to-use interface with two gameplay modes:
 ✅ Responsive & Accessible - Works on all devices with ARIA labels and hover effects.
 ✅ Reset Option - Restart the game anytime with a single click.
 ```
+
+---
+## 📸 Screenshots
+
+### Game Board
+![Tic-Tac-Toe Game Board](screenshots/Screenshot_1.png)
+
+### Winning Combination Highlight
+![Winning Combination](screenshots/Screenshot_2.png)
 
 ---
 
@@ -58,17 +65,13 @@ To run Tic-Tac-Toe on your local machine, follow these steps:
 
 ## 🤝 Contributing
 
-```
 Contributions are welcome! If you find a bug or have a feature suggestion, please open an issue or submit a pull request.
-```
 
 ---
 
 ## 📜 License
 
-```
 Tic-Tac-Toe is released under the MIT License.
-```
 
 ---
 
